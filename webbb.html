@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dela | Grafika Komputer</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  background:#f4f7ff;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:22px 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  background:linear-gradient(
+  90deg,
+  #3b82f6,
+  #7c3aed,
+  #0ea5e9
+  );
+
+  border-bottom:2px solid rgba(255,255,255,0.4);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:white;
+  font-weight:600;
+  font-size:20px;
+}
+
+.logo-circle{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.4);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:700;
+  font-size:28px;
+}
+
+.menu{
+  display:flex;
+  gap:45px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+  font-weight:600;
+  position:relative;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.menu a:hover{
+  opacity:0.8;
+}
+
+.menu a.active::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  width:100%;
+  height:4px;
+  border-radius:10px;
+  background:white;
+}
+
+/* SEMUA SECTION */
+
+.section{
+  min-height:100vh;
+  padding:
+  130px
+  70px
+  90px;
+}
+
+/* HOME */
+
+#home{
+  background:
+  linear-gradient(
+  135deg,
+  #3b82f6,
+  #0ea5e9
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+
+  color:white;
+}
+
+.home-left{
+  width:50%;
+}
+
+.small-text{
+  letter-spacing:7px;
+  font-size:15px;
+  margin-bottom:25px;
+  color:rgba(255,255,255,0.7);
+  font-weight:600;
+}
+
+.home-left h1{
+  font-family:'Playfair Display',serif;
+  font-size:95px;
+  line-height:95px;
+  margin-bottom:30px;
+}
+
+.home-left h1 span{
+  font-style:italic;
+  font-weight:400;
+}
+
+.home-left p{
+  font-size:22px;
+  line-height:50px;
+  color:rgba(255,255,255,0.9);
+  max-width:650px;
+}
+
+.home-left p b{
+  color:white;
+}
+
+.home-btn{
+  margin-top:45px;
+  display:flex;
+  gap:20px;
+}
+
+.btn1{
+  padding:20px 40px;
+  background:white;
+  color:#2563eb;
+  border-radius:50px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn1:hover{
+  transform:translateY(-4px);
+}
+
+.btn2{
+  padding:20px 40px;
+  border-radius:50px;
+  border:1px solid rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+
+  color:white;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.home-right{
+  width:45%;
+  display:flex;
+  justify-content:center;
+}
+
+.slider-box{
+  width:520px;
+  height:520px;
+  border-radius:40px;
+  position:relative;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  2px solid rgba(255,255,255,0.1);
+
+  overflow:hidden;
+
+  transform:rotate(2deg);
+}
+.slider{
+  display:flex;
+  width:1560px;
+  transition:0.5s;
+}
+
+.slider img{
+  width:520px;
+  height:520px;
+  object-fit:cover;
+  border-radius:40px;
+}
+
+/* BUTTON SLIDER */
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:60px;
+  height:60px;
+  border-radius:50%;
+
+  border:none;
+
+  background:
+  rgba(255,255,255,0.4);
+
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+
+  backdrop-filter:blur(10px);
+
+  z-index:5;
+}
+
+.prev{
+  left:15px;
+}
+
+.next{
+  right:15px;
+}
+
+/* BULLET */
+
+.bullet{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+
+  display:flex;
+  gap:10px;
+}
+
+.bullet span{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.4);
+}
+
+.bullet .active-bullet{
+  background:white;
+}
+
+/* COPYRIGHT HOME */
+
+.home-copy{
+  position:absolute;
+  bottom:25px;
+  right:25px;
+
+  padding:14px 25px;
+  border-radius:25px;
+
+  background:
+  rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(10px);
+
+  font-weight:600;
+}
+
+/* ABOUT */
+
+#about{
+  background:#f5f7ff;
+  color:#111827;
+}
+
+.title-top{
+  text-align:center;
+  letter-spacing:6px;
+  color:#3b82f6;
+  font-weight:700;
+  margin-top:20px;
+}
+
+.big-title{
+  text-align:center;
+  font-size:90px;
+  font-family:'Playfair Display',serif;
+  margin-top:10px;
+}
+
+.big-title span{
+  font-style:italic;
+  color:#4f46e5;
+}
+
+.line{
+  width:75px;
+  height:6px;
+  border-radius:20px;
+
+  margin:
+  15px auto 70px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #3b82f6,
+  #4f46e5
+  );
+}
+
+/* ABOUT BOX */
+
+.about-box{
+  max-width:900px;
+  margin:auto;
+
+  background:white;
+
+  padding:50px;
+
+  border-radius:35px;
+
+  box-shadow:
+  0 10px 40px rgba(59,130,246,0.08);
+}
+
+.about-box h2{
+  font-size:55px;
+  font-family:'Playfair Display',serif;
+  margin-bottom:25px;
+}
+
+.about-box p{
+  font-size:20px;
+  line-height:55px;
+  color:#64748b;
+}
+
+.about-box b{
+  color:#111827;
+}
+
+/* SOCIAL */
+
+.social-title{
+  margin:
+  60px auto 25px;
+
+  max-width:900px;
+
+  font-size:17px;
+  letter-spacing:3px;
+  color:#64748b;
+  font-weight:700;
+}
+
+.social-wrap{
+  max-width:900px;
+  margin:auto;
+
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.social-card{
+  flex:1;
+  min-width:180px;
+
+  background:white;
+
+  padding:25px;
+
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  text-decoration:none;
+  color:#111827;
+
+  transition:0.3s;
+
+  box-shadow:
+  0 10px 35px rgba(59,130,246,0.07);
+}
+
+.social-card:hover{
+  transform:translateY(-6px);
+}
+.social-icon{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:white;
+  font-size:20px;
+}
+
+.ig{
+  background:
+  linear-gradient(
+  135deg,
+  #ff4d9b,
+  #ff8a5c
+  );
+}
+
+.tt{
+  background:#374151;
+}
+
+.yt{
+  background:#dc2626;
+}
+
+.email{
+  background:
+  linear-gradient(
+  135deg,
+  #3b82f6,
+  #4f46e5
+  );
+}
+
+.social-card span{
+  font-size:16px;
+  color:#64748b;
+}
+
+.social-card h3{
+  font-size:18px;
+  margin-top:2px;
+}
+
+/* TUGAS */
+
+#tugas{
+  background:
+  linear-gradient(
+  135deg,
+  #3b82f6,
+  #c09cff,
+  #2563eb
+  );
+
+  color:white;
+}
+
+#tugas .title-top{
+  color:rgba(255,255,255,0.7);
+}
+
+#tugas .line{
+  background:
+  rgba(255,255,255,0.5);
+}
+
+.tugas-wrap{
+  margin-top:40px;
+
+  display:flex;
+  gap:35px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* CARD TUGAS */
+
+.tugas-card{
+  width:580px;
+  overflow:hidden;
+
+  border-radius:35px;
+
+  background:white;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* HEADER CARD */
+
+.tugas-header{
+  padding:35px;
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.video-header{
+  background:
+  linear-gradient(
+  135deg,
+  #4f6df5,
+  #4f46e5
+  );
+}
+
+.kuis-header{
+  background:
+  linear-gradient(
+  135deg,
+  #a855f7,
+  #ec4899
+  );
+}
+
+.tugas-icon{
+  width:60px;
+  height:60px;
+  border-radius:20px;
+
+  background:
+  rgba(255,255,255,0.2);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:28px;
+}
+
+.tugas-header h2{
+  font-size:28px;
+  font-family:'Playfair Display',serif;
+}
+
+.tugas-header p{
+  opacity:0.8;
+  margin-top:5px;
+}
+
+/* LIST TUGAS */
+
+.tugas-list{
+  padding:25px 35px 35px;
+}
+
+.task{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+
+  margin:30px 0;
+}
+
+.number{
+  min-width:45px;
+  height:45px;
+  border-radius:50%;
+
+  color:white;
+  font-weight:700;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.blue{
+  background:
+  linear-gradient(
+  135deg,
+  #4f6df5,
+  #4f46e5
+  );
+}
+
+.pink{
+  background:
+  linear-gradient(
+  135deg,
+  #a855f7,
+  #ec4899
+  );
+}
+.task-content{
+  width:100%;
+}
+
+.task-content a{
+  text-decoration:none;
+  color:#111827;
+
+  font-size:20px;
+  font-weight:700;
+
+  transition:0.3s;
+}
+
+.task-content a:hover{
+  color:#4f46e5;
+}
+
+.task-content p{
+  margin-top:8px;
+  line-height:30px;
+  color:#64748b;
+}
+
+/* CONTACT */
+
+#contact{
+  background:#f8fbff;
+}
+
+.contact-wrap{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+/* CONTACT LEFT */
+
+.contact-left{
+  flex:1;
+  min-width:350px;
+}
+
+.contact-left h2{
+  font-size:70px;
+  line-height:80px;
+
+  font-family:'Playfair Display',serif;
+
+  margin-bottom:25px;
+}
+
+.contact-left h2 span{
+  color:#4f46e5;
+  font-style:italic;
+}
+
+.contact-left p{
+  color:#64748b;
+  line-height:40px;
+  font-size:18px;
+}
+
+.contact-info{
+  margin-top:40px;
+}
+
+.info-box{
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  margin:28px 0;
+}
+
+.info-icon{
+  width:55px;
+  height:55px;
+  border-radius:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:white;
+  font-size:22px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #3b82f6,
+  #6366f1
+  );
+}
+
+.info-box h4{
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.info-box span{
+  color:#64748b;
+}
+
+/* CONTACT RIGHT */
+
+.contact-right{
+  flex:1;
+  min-width:350px;
+}
+
+.contact-card{
+  background:white;
+
+  padding:45px;
+
+  border-radius:35px;
+
+  box-shadow:
+  0 10px 35px rgba(59,130,246,0.08);
+}
+
+.contact-card h3{
+  font-size:35px;
+  margin-bottom:35px;
+
+  font-family:'Playfair Display',serif;
+}
+
+/* FORM */
+
+.input-box{
+  margin-bottom:25px;
+}
+
+.input-box label{
+  display:block;
+  margin-bottom:10px;
+
+  font-weight:600;
+  color:#374151;
+}
+
+.input-box input,
+.input-box textarea{
+  width:100%;
+  padding:18px 20px;
+
+  border-radius:18px;
+  border:1px solid #dbeafe;
+
+  background:#f8fbff;
+
+  font-size:16px;
+  font-family:'Poppins',sans-serif;
+
+  outline:none;
+
+  transition:0.3s;
+}
+
+.input-box input:focus,
+.input-box textarea:focus{
+  border-color:#6366f1;
+}
+
+.input-box textarea{
+  height:160px;
+  resize:none;
+}
+.send-btn{
+  width:100%;
+  padding:20px;
+
+  border:none;
+  border-radius:20px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #3b82f6,
+  #6366f1
+  );
+
+  color:white;
+
+  font-size:17px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.send-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* FOOTER */
+
+footer{
+  background:
+  linear-gradient(
+  90deg,
+  #2563eb,
+  #6366f1,
+  #0ea5e9
+  );
+
+  color:white;
+
+  padding:30px 70px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+
+  border-top:
+  2px solid rgba(255,255,255,0.4);
+}
+
+.footer-left{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.footer-logo{
+  width:55px;
+  height:55px;
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,0.2);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:24px;
+  font-weight:700;
+}
+
+.footer-left h2{
+  font-size:22px;
+}
+
+.footer-left p{
+  opacity:0.8;
+  margin-top:3px;
+}
+
+.footer-right{
+  text-align:right;
+}
+
+.footer-right p{
+  opacity:0.8;
+  margin-top:5px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.home{
+  flex-direction:column;
+  text-align:center;
+}
+
+.home-left{
+  width:100%;
+}
+
+.home-right{
+  width:100%;
+}
+
+.home-left h1{
+  font-size:75px;
+  line-height:75px;
+}
+
+.home-btn{
+  justify-content:center;
+}
+
+.contact-wrap{
+  flex-direction:column;
+}
+
+}
+
+@media(max-width:800px){
+
+nav{
+  padding:20px 25px;
+}
+
+.menu{
+  gap:20px;
+}
+
+.section{
+  padding:
+  130px
+  25px
+  80px;
+}
+
+.big-title{
+  font-size:60px;
+}
+
+.home-left h1{
+  font-size:55px;
+  line-height:60px;
+}
+
+.home-left p{
+  font-size:18px;
+  line-height:38px;
+}
+
+.slider-box{
+  width:100%;
+  height:420px;
+}
+
+.slider{
+  width:300%;
+}
+
+.slider img{
+  width:100vw;
+  height:420px;
+}
+.slide-btn{
+  width:50px;
+  height:50px;
+}
+
+.about-box{
+  padding:35px;
+}
+
+.about-box h2{
+  font-size:40px;
+}
+
+.about-box p{
+  font-size:17px;
+  line-height:40px;
+}
+
+.social-card{
+  min-width:100%;
+}
+
+.tugas-card{
+  width:100%;
+}
+
+.contact-left h2{
+  font-size:50px;
+  line-height:60px;
+}
+
+.contact-card{
+  padding:30px;
+}
+
+footer{
+  padding:25px;
+  text-align:center;
+  gap:20px;
+}
+
+.footer-left,
+.footer-right{
+  width:100%;
+  justify-content:center;
+  text-align:center;
+}
+
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+    <div class="logo-circle">
+      D
+    </div>
+
+    <div>
+      Grafika Komputer
+    </div>
+  </div>
+
+  <div class="menu">
+    <a onclick="showSection('home')" class="active">
+      Home
+    </a>
+
+    <a onclick="showSection('about')">
+      Tentang
+    </a>
+
+    <a onclick="showSection('tugas')">
+      Tugas
+    </a>
+
+    <a onclick="showSection('contact')">
+      Hubungi
+    </a>
+  </div>
+
+</nav>
+
+<!-- HOME -->
+
+<section id="home" class="section">
+
+  <div class="home-left">
+
+    <div class="small-text">
+      Wesbsite Portofolio-dela's place
+    </div>
+
+    <h1>
+      Halo, Saya
+      <span>Dela Nanda Sari</span>
+    </h1>
+
+    <p>
+      <b>Yoohooo🌼</b>,
+      welcome to my tiny corner on the internet ♡ here you'll find my works, my stories, and tugas-tugas yang somehow selalu survive ✿ stay awhile & have fun exploring (灬˶ᵔ ᵕ ᵔ˶灬).
+    </p>
+
+    <div class="home-btn">
+
+      <a href="#about" class="btn1">
+        Tentang Saya
+      </a>
+
+      <a href="#tugas" class="btn2">
+        Lihat Tugas
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="home-right">
+
+    <div class="slider-box">
+
+      <div class="slider" id="slider">
+
+        <img src="fotoone.jpg">
+
+        <img src="fototwo.jpg">
+
+        <img src="fotothree.jpg">
+
+      </div>
+
+      <button class="slide-btn prev" onclick="prevSlide()">
+        ❮
+      </button>
+
+      <button class="slide-btn next" onclick="nextSlide()">
+        ❯
+      </button>
+
+      <div class="bullet">
+
+        <span class="active-bullet"></span>
+
+        <span></span>
+
+        <span></span>
+
+      </div>
+
+      <div class="home-copy">
+        My Pict(p≧w≦q)
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+  <div class="title-top">
+    ABOUT ME
+  </div>
+
+  <div class="big-title">
+    Tentang
+    <span>Saya</span>
+  </div>
+
+  <div class="line"></div>
+  <div class="about-box">
+
+    <h2>
+      hello there!♡
+    </h2>
+
+    <p>
+      yohooo!! aku Dela Nanda Sari, seorang mahasiswa
+      <b>S1 Pendidikan Teknologi Informasi</b>
+      this is my tiny corner on the internet ♡
+      
+      <p>Sejak duduk di bangku sekolah, aku sudah memiliki ketertarikan yang besar pada dunia programming ✿. What started as simple curiosity slowly grew into a passion that motivates me to keep learning, exploring new things, and understanding how technology can turn ideas into reality.
+      This website is my little digital space 🌷, where I document my learning journey and personal growth, especially through my Computer Graphics assignments. Di sini, aku membagikan tugas, proyek, dan berbagai hasil pembelajaran yang telah aku kerjakan sepanjang proses belajar.
+      I hope every project and challenge I face here helps me understand programming more deeply, expand my knowledge, and develop skills that will be valuable in the future ♡. Step by step, I want to become a better learner, a better developer, and someone who can create meaningful solutions through technology.
+      My dream is to keep growing, innovate through technology, and transform ideas into creations that can make a positive impact ✿.</p>
+      <p><b>This website is not only a collection of assignments, but also a reflection of my journey, my aspirations, and the goals I continue to pursue (˶ᵔ ᵕ ᵔ˶) 🌸</b></p>
+
+    </p>
+
+  </div>
+
+  <div class="social-title">
+    SOCIAL MEDIA
+  </div>
+
+  <div class="social-wrap">
+
+    <!-- INSTAGRAM -->
+
+    <a href="https://www.instagram.com/nndddlllla?igsh=MXd4cGJuM2dnNW0wZw=="
+    target="_blank"
+    class="social-card">
+
+      <div class="social-icon ig">
+        <i class="fab fa-instagram"></i>
+      </div>
+
+      <div>
+        <span>Instagram</span>
+        <h3>@nndddlllla</h3>
+      </div>
+
+    </a>
+
+    <!-- TIKTOK -->
+
+    <a href="https://www.tiktok.com/@laaaaaa_nd?is_from_webapp=1&sender_device=pc"
+    target="_blank"
+    class="social-card">
+
+      <div class="social-icon tt">
+        <i class="fab fa-tiktok"></i>
+      </div>
+
+      <div>
+        <span>TikTok</span>
+        <h3>@ndvell</h3>
+      </div>
+
+    </a>
+
+    <!-- YOUTUBE -->
+
+    <a href="https://youtube.com/@delaaaaaaa3599?si=_sG92w7qEzDcZsti"
+    target="_blank"
+    class="social-card">
+
+      <div class="social-icon yt">
+        <i class="fab fa-youtube"></i>
+      </div>
+
+      <div>
+        <span>YouTube</span>
+        <h3>Delaaaa</h3>
+      </div>
+
+    </a>
+
+    <!-- EMAIL -->
+
+    <a href="mailto:dellanandasari70@gmail.com"
+    class="social-card">
+
+      <div class="social-icon email">
+        <i class="fas fa-envelope"></i>
+      </div>
+
+      <div>
+        <span>Email</span>
+        <h3>dellanandasari70@gmail.com</h3>
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- TUGAS -->
+
+<section id="tugas" class="section">
+
+  <div class="title-top">
+    MY PROJECT
+  </div>
+
+  <div class="big-title">
+    Daftar
+    <span>Tugas</span>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="tugas-wrap">
+
+    <!-- VIDEO SOAL -->
+
+    <div class="tugas-card">
+
+      <div class="tugas-header video-header">
+
+        <div class="tugas-icon">
+          <i class="fas fa-video"></i>
+        </div>
+
+        <div>
+          <h2>Video Soal</h2>
+          <p>Kumpulan Video Tugas</p>
+        </div>
+
+      </div>
+
+      <div class="tugas-list">
+
+        <div class="task">
+
+          <div class="number blue">
+            1
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScqRKchYwDPzQPY0iV74IxFg2Mxh4uRLEVvCMDRT1mbirRR-g/viewform?usp=sharing&ouid=108074823027977252610"
+            target="_blank">
+              Algoritma Garis
+            </a>
+
+            <p>
+              Soal dan Pembahasan mengenai algoritma garis pada grafika komputer.
+            </p>
+
+          </div>
+
+        </div>
+        <div class="task">
+
+          <div class="number blue">
+            2
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQaxwEQ2ZfprCFkMNQjpvjGQeeE9cdfAQlbxmUCu4NiXxCOA/viewform?usp=sharing&ouid=108074823027977252610"
+            target="_blank">
+              Algoritma Lingkaran
+            </a>
+
+            <p>
+              Soal dan Pembahasan mengenai implementasi algoritma lingkaran dalam grafika komputer.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number blue">
+            3
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSduxECVcArkzcMQ-WskbrLzP1_YoNy-7-P--JQk1AeiL_0P8w/viewform?usp=sharing&ouid=108074823027977252610"
+            target="_blank">
+              Algoritma Kurva
+            </a>
+
+            <p>
+              Soal dan Pembahasan mengenai pembentukan kurva digital.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number blue">
+            4
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf19qSHEZMYsNaeExHNLBi25bo3C6VI9jTvJ2QWA1n1UkOIFA/viewform?usp=sharing&ouid=108074823027977252610"
+            target="_blank">
+              Transformasi 2D
+            </a>
+
+            <p>
+              Soal dan Pembahasan mengenai transformasi translasi, rotasi, dan scaling.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number blue">
+            5
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9GTyD1DgOoWllLuYVyNBfx5byGgkYElvqzFfZROmA43xe2Q/viewform?usp=sharing&ouid=108074823027977252610"
+            target="_blank">
+              Clipping Window
+            </a>
+
+            <p>
+              Soal dan Pembahasan mengenai clipping pada grafika komputer.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO KUIS -->
+
+    <div class="tugas-card">
+
+      <div class="tugas-header kuis-header">
+
+        <div class="tugas-icon">
+          <i class="fas fa-book"></i>
+        </div>
+
+        <div>
+          <h2>Video Kuis</h2>
+          <p>Kumpulan Video Kuis</p>
+        </div>
+
+      </div>
+
+      <div class="tugas-list">
+
+        <div class="task">
+
+          <div class="number pink">
+            1
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://youtu.be/L3pW9xTFft8?si=uj9dB2nt_OWbiypc"
+            target="_blank">
+              Kuis Pertama
+            </a>
+
+            <p>
+              Persamaan Misteri.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number pink">
+            2
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://youtu.be/R5wCyfPJds0?si=mntGO3p37cdnD_S1"
+            target="_blank">
+              Kuis Kedua
+            </a>
+
+            <p>
+              Transformasi 2D.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number pink">
+            3
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://youtu.be/YoHsCEjDE_o?si=KzVn9jc3xLDjIVMK"
+            target="_blank">
+              Kuis Ketiga
+            </a>
+
+            <p>
+              Algoritma Pemotongan Garis.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="task">
+
+          <div class="number pink">
+            4
+          </div>
+
+          <div class="task-content">
+
+            <a href="https://youtu.be/dSm1tyWh3RU?si=NjpO1fhuuK0gt7QY"
+            target="_blank">
+              Kuis Keempat
+            </a>
+
+            <p>
+              Algoritma Pemotongan Poligon.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+  <div class="title-top">
+    CONTACT ME
+  </div>
+
+  <div class="big-title">
+    Hubungi
+    <span>Saya</span>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="contact-wrap">
+
+    <div class="contact-left">
+
+      <h2>
+        Mari
+        <span>Terhubung</span>
+      </h2>
+
+      <p>
+        Jika ingin bertanya,
+        berdiskusi,
+        atau memberikan saran mengenai website ini,
+        silakan hubungi saya melalui form atau kontak berikut.
+      </p>
+
+      <div class="contact-info">
+
+        <div class="info-box">
+
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+
+          <div>
+            <h4>Email</h4>
+            <span>dellanandasari70@gmail.com</span>
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <div class="info-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+
+          <div>
+            <h4>Instagram</h4>
+            <span>@nndddlllla</span>
+          </div>
+
+        </div>
+        <div class="info-box">
+
+        <div class="info-icon">
+        <i class="fab fa-tiktok"></i>
+        </div>
+
+        <div>
+          <h4>TikTok</h4>
+          <span>@ndvell</span>
+        </div>
+
+      </div>
+
+      <div class="info-box">
+
+        <div class="info-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+
+        <div>
+          <h4>YouTube</h4>
+          <span>Delaaaa</span>
+        </div>
+
+      </div>
+  </div>
+
+</div>
+
+ 
+
+    <!-- FORM -->
+
+    <div class="contact-right">
+
+      <div class="contact-card">
+
+        <h3>
+          Kirim Pesan
+        </h3>
+
+        <form
+        action="dellanandasari70@gmail.com">
+
+          <div class="input-box">
+
+            <label>
+              Nama
+            </label>
+
+            <input
+            type="text"
+            placeholder="Masukkan nama">
+
+          </div>
+
+          <div class="input-box">
+
+            <label>
+              Email
+            </label>
+
+            <input
+            type="email"
+            placeholder="Masukkan email">
+
+          </div>
+
+          <div class="input-box">
+
+            <label>
+              Pesan
+            </label>
+
+            <textarea
+            placeholder="Tulis pesan anda..."></textarea>
+
+          </div>
+
+          <button class="send-btn">
+            Kirim Pesan
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-left">
+
+    <div class="footer-logo">
+      D
+    </div>
+
+    <div>
+      <h2>
+        Grafika Komputer
+      </h2>
+
+      <p>
+        Website Portfolio Dela
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <h3>
+      © 2026 Dela Nanda Sari
+    </h3>
+
+    <p>
+      All Rights Reserved
+    </p>
+
+  </div>
+
+</footer>
+
+<script>
+
+/* SLIDER */
+
+let slider =
+document.getElementById('slider');
+
+let bullets =
+document.querySelectorAll('.bullet span');
+
+let current = 0;
+
+function updateSlide(){
+
+slider.style.transform =
+`translateX(-${current * 520}px)`;
+
+bullets.forEach(
+b => b.classList.remove('active-bullet')
+);
+
+bullets[current]
+.classList.add('active-bullet');
+
+}
+
+function nextSlide(){
+
+current++;
+
+if(current > 2){
+current = 0;
+}
+
+updateSlide();
+
+}
+
+function prevSlide(){
+
+current--;
+
+if(current < 0){
+current = 2;
+}
+
+updateSlide();
+
+}
+
+/* AUTO SLIDE */
+
+setInterval(nextSlide,4000);
+
+/* MENU ACTIVE */
+
+const menuLinks =
+document.querySelectorAll('.menu a');
+
+function showSection(id){
+
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:'smooth'
+});
+
+menuLinks.forEach(
+link => link.classList.remove('active')
+);
+
+event.target.classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
